@@ -1,0 +1,27 @@
+browser configuration:
+mvn clean install -Dselenide.browser=Firefox
+
+
+for running selenoid without docker:
+lora@lora-Inspiron-15-7579:~/Desktop/selenoid_without_docker$ ./selenoid_darwin_amd64 -conf ./browsers.json -disable-docker
+
+
+for running selenoid with docker:
+curl -s https://aerokube.com/cm/bash | bash && ./cm selenoid start --vnc --last-versions 1 --browsers chrome  && ./cm selenoid-ui start
+
+  chrome:
+    image: "selenoid/vnc:chrome_73.0"
+    network_mode: bridge
+    links:
+      - selenoid
+
+
+
+      "chrome": {
+          "default": "73.0",
+          "versions": {
+            "73.0": {
+              "image": "selenoid/vnc:chrome_73.0",
+      	"image": "",
+              "port": "4444",
+      	"path": "/" }}},
